@@ -2687,6 +2687,15 @@
     mime-types "2.1.34"
     node-fetch "2.6.7"
 
+"@redwoodjs/record@^0.47.0":
+  version "0.47.0"
+  resolved "https://registry.yarnpkg.com/@redwoodjs/record/-/record-0.47.0.tgz#ef6efda856e5da837b721068093e5603d0c8a723"
+  integrity sha512-+zNVaIVuGnOGufZDbGD6oD/yxfFyFFMH2Ab906+bmiBtvP77psQPoENEvDLFbQLz6uLALTuOhFlOz9e9yVLXOQ==
+  dependencies:
+    "@prisma/client" "3.9.2"
+    "@prisma/sdk" "3.9.2"
+    core-js "3.21.1"
+
 "@redwoodjs/router@0.46.1":
   version "0.46.1"
   resolved "https://registry.yarnpkg.com/@redwoodjs/router/-/router-0.46.1.tgz#3f24f71e38f7e14268200459a2ce4b10c6ebd94d"
@@ -2835,10 +2844,10 @@
   resolved "https://registry.yarnpkg.com/@slack/types/-/types-2.4.0.tgz#b6f6d50e9181f723080b841302e089739cef512d"
   integrity sha512-0k8UlVEH9gUVwTbwcanS1JT2vCROkr1WESgdXW7d2maWYTuwbVEx87YvXPjsemAJfdu+RYqxGhO2oGTigprepA==
 
-"@slack/web-api@^6.3.0":
-  version "6.6.0"
-  resolved "https://registry.yarnpkg.com/@slack/web-api/-/web-api-6.6.0.tgz#687feb7ff28ffd5eb5b7773c04108f0332b06a43"
-  integrity sha512-4z8tBBIQFojH9uSrsmnI0pGDpOZmJ3UO+Ewwtj3SfkokAUJz3d2dSH5sPk9jKcGfx39e34LoJ+l1YSavvHQeeg==
+"@slack/web-api@^6.3.0", "@slack/web-api@^6.7.0":
+  version "6.7.0"
+  resolved "https://registry.yarnpkg.com/@slack/web-api/-/web-api-6.7.0.tgz#86e326d84a41aea1a1d12394d1eb94f95bbb584e"
+  integrity sha512-Jd0ZC/aolkdeM2m3j0SYASlzoUe1AWgm19eDkmGjfli6CzoW1benYHqgMh1owS7+gLfe4FEILtE0fyVDZjgmGQ==
   dependencies:
     "@slack/logger" "^3.0.0"
     "@slack/types" "^2.0.0"
@@ -4035,7 +4044,7 @@
     "@types/node" "*"
     form-data "^3.0.0"
 
-"@types/node@*", "@types/node@>=12", "@types/node@>=12.0.0":
+"@types/node@*":
   version "17.0.20"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.20.tgz#29626bd9c9119df5b8194353d34044c895fe56e3"
   integrity sha512-Q15Clj3lZSLnhVA6yKw1G7SQz46DeL9gO1TEgfK1OQGvMdQ6TUWmCeWf1QBUNkw2BDfV52i2YuYd9OF3ZwGhjw==
@@ -4044,6 +4053,11 @@
   version "16.11.25"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-16.11.25.tgz#bb812b58bacbd060ce85921250d8b4ca553cd4a2"
   integrity sha512-NrTwfD7L1RTc2qrHQD4RTTy4p0CO2LatKBEKEds3CaVuhoM/+DJzmWZl5f+ikR8cm8F5mfJxK+9rQq07gRiSjQ==
+
+"@types/node@>=12", "@types/node@>=12.0.0":
+  version "17.0.21"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.21.tgz#864b987c0c68d07b4345845c3e63b75edd143644"
+  integrity sha512-DBZCJbhII3r90XbQxI8Y9IjjiiOGlZ0Hr32omXIZvwwZ7p4DMMXGrKXVyPfuoBOri9XNtL0UK69jYIBIsRX3QQ==
 
 "@types/node@^14.0.10":
   version "14.18.12"

@@ -5,6 +5,8 @@
   "dependencies": {
     "@redwoodjs/api": "0.46.1",
     "@redwoodjs/graphql-server": "0.46.1",
-    "@slack/oauth": "^2.4.0"
+    "@redwoodjs/record": "^0.47.0",
+    "@slack/oauth": "^2.4.0",
+    "@slack/web-api": "^6.7.0"
   }
 }

@@ -1,5 +1,5 @@
 datasource db {
-  provider = "sqlite"
+  provider = "postgres"
   url      = env("DATABASE_URL")
 }
 
@@ -8,11 +8,16 @@ generator client {
   binaryTargets = "native"
 }
 
-// Define your own datamodels here and run `yarn redwood prisma migrate dev`
-// to create migrations for them and apply to your dev DB.
-// TODO: Please remove the following example:
-model UserExample {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
+model AppInstallation {
+  id                Int     @id @default(autoincrement())
+  createdAt         DateTime  @default(now())
+  botScopes         String   // Comma-separated list of scopes; if using Postgres, you can use a list: String[]
+  botToken          String
+  teamId            String
+  isEnterprise      Boolean
+  enterpriseId      String?
+  slackOrgId        String
+  installationData  Json      // Change to String if you want to use SQLite
+
+  @@index(slackOrgId)
 }

@@ -20,5 +20,9 @@
   },
   "prisma": {
     "seed": "yarn rw exec seed"
+  },
+  "dependencies": {
+    "@redwoodjs/record": "^0.47.0",
+    "api": "^4.2.0"
   }
 }

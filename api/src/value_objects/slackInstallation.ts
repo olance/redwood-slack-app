@@ -3,12 +3,20 @@ import { Installation } from '@slack/oauth'
 export class SlackInstallation {
   constructor(private installationData: Installation) {}
 
-  get isEnterprise() {
-    return this.installationData.isEnterpriseInstall
+  get botToken(): string {
+    return this.installationData.bot?.token
+  }
+
+  get botScopes(): string {
+    return this.installationData.bot?.scopes.join(',')
+  }
+
+  get isEnterprise(): boolean {
+    return !!this.installationData.isEnterpriseInstall
   }
 
   get enterpriseId() {
-    return this.installationData.enterprise.id
+    return this.installationData.enterprise?.id
   }
 
   get teamId() {
