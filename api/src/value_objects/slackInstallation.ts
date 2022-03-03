@@ -20,7 +20,7 @@ export class SlackInstallation {
   }
 
   get teamId() {
-    return this.installationData.team.id
+    return this.installationData.team?.id
   }
 
   get slackOrgId() {
