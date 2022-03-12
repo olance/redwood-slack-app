@@ -1,6 +1,6 @@
 import { ErrorCode } from '@slack/oauth/dist/errors'
 import { logger } from 'src/lib/logger'
-import { SlackInstaller } from 'src/lib/slack'
+import { SlackInstaller } from 'src/lib/slackInstaller'
 import { SlackInstallation } from 'src/value_objects/slackInstallation'
 
 /**

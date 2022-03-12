@@ -1,4 +1,4 @@
-import { SlackInstaller } from 'src/lib/slack'
+import { SlackInstaller } from 'src/lib/slackInstaller'
 
 export async function getInstallUrl(): Promise<string> {
   return SlackInstaller.generateInstallUrl({

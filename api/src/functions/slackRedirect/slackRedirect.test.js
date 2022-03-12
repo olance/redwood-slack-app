@@ -3,7 +3,7 @@ import { ErrorCode } from '@slack/oauth/dist/errors'
 
 import { handler } from './slackRedirect'
 
-import { SlackInstaller } from 'src/lib/slack'
+import { SlackInstaller } from 'src/lib/slackInstaller'
 
 //   Improve this test with help from the Redwood Testing Doc:
 //    https://redwoodjs.com/docs/testing#testing-functions

@@ -1,11 +1,7 @@
-import {
-  Installation,
-  InstallationQuery,
-  InstallProvider,
-} from '@slack/oauth'
+import { Installation, InstallationQuery, InstallProvider } from '@slack/oauth'
 
 import { AppInstallation } from 'src/models'
-import { SlackInstallation } from '../value_objects/slackInstallation'
+import HandleAppInstallCommand from '../commands/HandleAppInstallCommand'
 
 export const SlackInstaller = new InstallProvider({
   clientId: process.env.SLACK_CLIENT_ID,
@@ -14,23 +10,10 @@ export const SlackInstaller = new InstallProvider({
 
   installationStore: {
     async storeInstallation<AuthVersion extends 'v1' | 'v2'>(
-      installation: Installation<AuthVersion, boolean>
+      installationData: Installation<AuthVersion, boolean>
     ): Promise<void> {
-      const slackInstallation = new SlackInstallation(installation)
-
-      const appInstall = await AppInstallation.create({
-        botScopes: slackInstallation.botScopes,
-        botToken: slackInstallation.botToken,
-        teamId: slackInstallation.teamId,
-        isEnterprise: slackInstallation.isEnterprise,
-        enterpriseId: slackInstallation.enterpriseId,
-        slackOrgId: slackInstallation.slackOrgId,
-        installationData: installation,
-      })
-
-      if (appInstall === false) {
-        throw new Error('Failed saving Slack app installation')
-      }
+      const installationHandler = new HandleAppInstallCommand(installationData)
+      await installationHandler.execute()
     },
 
     async fetchInstallation(
