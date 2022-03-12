@@ -7,8 +7,14 @@ import { RedwoodRecord } from '@redwoodjs/record'
 RedwoodRecord.db = db
 RedwoodRecord.schema = datamodel
 
-import AppInstallation from 'src/models/AppInstallation'
+import { AppInstallation } from 'src/models/AppInstallation'
+import { OrgUsersMembership } from 'src/models/OrgUsersMembership'
+import { Organization } from 'src/models/Organization'
+import { User } from 'src/models/User'
 
-AppInstallation.requiredModels = []
+AppInstallation.requiredModels = [Organization]
+OrgUsersMembership.requiredModels = [Organization, User]
+Organization.requiredModels = [AppInstallation, OrgUsersMembership]
+User.requiredModels = [OrgUsersMembership]
 
-export { AppInstallation }
+export { AppInstallation, OrgUsersMembership, Organization, User }

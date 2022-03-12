@@ -27,6 +27,14 @@ export default (Base, ...fieldsToEncrypt) =>
       return super.create(attributes, options)
     }
 
+    static async upsert(attributes, where, options = {}) {
+      const fields = options.fieldsToEncrypt || fieldsToEncrypt
+
+      encryptFields(attributes, fields)
+
+      return super.upsert(attributes, where, options)
+    }
+
     _createPropertyForAttribute(name) {
       const fieldsRoots = []
       const nestedPaths = {}
