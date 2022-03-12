@@ -9,15 +9,69 @@ generator client {
 }
 
 model AppInstallation {
-  id                Int     @id @default(autoincrement())
+  id                String    @id @default(cuid())
   createdAt         DateTime  @default(now())
-  botScopes         String   // Comma-separated list of scopes; if using Postgres, you can use a list: String[]
+  updatedAt         DateTime  @updatedAt
+  botScopes         String    // Comma-separated list of scopes; if using Postgres, you can use a list: String[]
   botToken          String
   teamId            String
   isEnterprise      Boolean
   enterpriseId      String?
-  slackOrgId        String
   installationData  Json      // Change to String if you want to use SQLite
 
+  organization      Organization?
+  slackOrgId        String    @unique
+
   @@index(slackOrgId)
+}
+
+model Organization {
+  id          String    @id @default(cuid())
+  slackOrgId  String    @unique
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  name        String
+
+  appInstallation AppInstallation @relation(fields: [slackOrgId], references: [slackOrgId])
+  users           OrgUsersMembership[]
+}
+
+enum OrgUserRole {
+  OWNER
+  ADMIN
+  MEMBER
+}
+
+model OrgUsersMembership {
+  organization    Organization  @relation(fields: [organizationId], references: [id])
+  organizationId  String
+  user            User          @relation(fields: [userId], references: [id])
+  userId          String
+
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+
+  role            OrgUserRole   @default(MEMBER)
+
+  @@id([organizationId, userId])
+}
+
+model User {
+  id          String        @id @default(cuid())
+  slackId     String
+  slackOrgId  String
+
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  firstName    String?
+  lastName    String?
+  fullName    String?
+  email       String?
+  title       String?
+  profilePictureUrl String?
+
+  organizations OrgUsersMembership[]
+
+  @@unique([slackId, slackOrgId])
 }
