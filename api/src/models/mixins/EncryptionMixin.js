@@ -48,7 +48,9 @@ export default (Base, ...fieldsToEncrypt) =>
         Object.defineProperty(this, name, {
           get() {
             if (name in nestedPaths) {
-              const value = this._attributeGetter(name)
+              const value = JSON.parse(
+                JSON.stringify(this._attributeGetter(name))
+              )
               decryptFields(value, nestedPaths[name])
               return value
             } else {
@@ -73,7 +75,7 @@ export default (Base, ...fieldsToEncrypt) =>
         fields = fieldsToEncrypt
       }
 
-      encryptFields(this, fields)
+      encryptFields(this.attributes, fields)
 
       return this
     }
