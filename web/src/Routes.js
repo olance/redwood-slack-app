@@ -13,7 +13,10 @@ const Routes = () => {
   return (
     <Router>
       <Route path="/" page={HomePage} name="home" />
+
+      <Route path="/install/{slackOrgId}/signin" page={InstallSignInPage} name="installSignIn" />
       <Route path="/install/error" page={InstallErrorPage} name="installError" />
+
       <Route notfound page={NotFoundPage} />
     </Router>
   )

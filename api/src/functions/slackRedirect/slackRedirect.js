@@ -37,7 +37,7 @@ export const handler = async (event) => {
         resolve({
           statusCode: 302,
           headers: {
-            Location: `/install/${slackInstall.slackOrgId}/finalize`,
+            Location: `/install/${slackInstall.slackOrgId}/signin`,
           },
         })
       },

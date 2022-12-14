@@ -187,7 +187,7 @@ AddToSlack.propTypes = {
       )
     }
   },
-  url: PropTypes.string,
+  fullUrl: PropTypes.string,
   redirectUri: PropTypes.string,
   userScopes: PropTypes.arrayOf(PropTypes.string),
   botScopes: PropTypes.arrayOf(PropTypes.string),
